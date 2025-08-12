@@ -9,7 +9,7 @@ const main = require("./src/services/gemini");
 const httpServer = createServer();
 const io = new Server(httpServer, {
     cors: {
-        origin: "http://localhost:5173",
+        origin: "http://localhost:5173"||"lily-ai-chatbot.vercel.app/",
         methods: ["GET", "POST"]
     }
  });

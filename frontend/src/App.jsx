@@ -29,9 +29,9 @@ function App() {
   };
 
   useEffect(() => {
-    let socketInstance = io("http://localhost:3000");
+    let socketInstance = io("https://lily-ai-chatbot.onrender.com");
     setSocket(socketInstance);
-    console.log("re rendered");
+    console.log("Connected to production server");
 
     socketInstance.on("ai-response", (response) => {
       setIsLoading(false); // Stop loading when response received
