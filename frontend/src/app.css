@@ -1,0 +1,93 @@
+@import "tailwindcss";
+/* Defines the keyframes for the animation.
+  It animates the vertical background-position from top (0%) to bottom (100%) and back again,
+  creating a smooth, continuous "flowing down" effect.
+*/
+@keyframes gradient-flow-down {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+
+/* This class applies the animation to any element.
+*/
+.animated-gradient {
+  /* We set the background size to be twice as tall as the element.
+    This gives the gradient "room" to move up and down within the container.
+  */
+  background-size: 100% 200%;
+  
+  /* Apply the animation defined above.
+    - 'gradient-flow-down' is the name of our @keyframes rule.
+    - '6s' is the duration of one animation cycle.
+    - 'ease' makes the animation start and end smoothly.
+    - 'infinite' makes the animation loop forever.
+  */
+  animation: gradient-flow-down 6s ease infinite;
+}
+
+
+/* From Uiverse.io by adamgiebl */ 
+.cssbuttons-io-button {
+  background: #9365d991;
+  color: white;
+  font-family: inherit;
+  padding: 0.35em;
+  padding-left: 1.2em;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 0.9em;
+  border: none;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 1.6em -0.6em #714da6;
+  overflow: hidden;
+  position: relative;
+  height: 2.8em;
+  padding-right: 3.3em;
+  cursor: pointer;
+}
+
+.cssbuttons-io-button .icon {
+  background: white;
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 0.7em;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em #8b5cd1;
+  right: 0.3em;
+  transition: all 0.3s;
+}
+
+.cssbuttons-io-button:hover .icon {
+  width: calc(100% - 0.6em);
+}
+
+.cssbuttons-io-button .icon svg {
+  width: 1.1em;
+  transition: transform 0.3s;
+  color: #7b52b9;
+}
+
+.cssbuttons-io-button:hover .icon svg {
+  transform: translateX(0.1em);
+}
+
+.cssbuttons-io-button:active .icon {
+  transform: scale(0.90);
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
