@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./app.css"; // Import the new CSS file for the animation
 import Spline from "@splinetool/react-spline";
 import { io } from "socket.io-client";
@@ -52,6 +52,19 @@ function App() {
     };
   }, []);
 
+  // Ref for chat container
+  const chatContainerRef = useRef(null);
+
+  // Auto-scroll to bottom when chatHistory or isLoading changes
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTo({
+        top: chatContainerRef.current.scrollHeight,
+        behavior: "smooth",
+      });
+    }
+  }, [chatHistory, isLoading]);
+
   return (
     <>
       {/* Spline scene - hidden on mobile */}
@@ -84,7 +97,10 @@ function App() {
             </div>
 
             {/* Chat Messages - adjust padding and spacing */}
-            <div className="flex-1 overflow-y-auto mb-4 space-y-3 md:space-y-4 pr-2">
+            <div
+              ref={chatContainerRef}
+              className="flex-1 overflow-y-auto mb-4 space-y-3 md:space-y-4 pr-2 smooth-scroll"
+            >
               {chatHistory.map((chat, index) => (
                 <div
                   key={index}

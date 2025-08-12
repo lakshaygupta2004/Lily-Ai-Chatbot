@@ -23,6 +23,12 @@
   display: none;
 }
 
+/* Smooth Scroll */
+.smooth-scroll {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* Chat Messages */
 .chat-message {
   word-break: break-word;
