@@ -93,11 +93,12 @@ function App() {
                   }`}
                 >
                   <div
-                    className={`max-w-[70%] hover:scale-102 transition-all ease rounded-2xl p-3 ${
+                    className={`max-w-[70%] chat-message hover:scale-102 transition-all ease rounded-2xl p-3 ${
                       chat.role === "user"
                         ? "bg-white/20 backdrop-blur-sm text-white rounded-tr-none"
                         : "bg-white/10 backdrop-blur-sm text-white rounded-tl-none"
                     }`}
+                    style={{ wordBreak: "break-word" }}
                   >
                     {chat.content}
                   </div>
@@ -135,14 +136,14 @@ function App() {
             {/* Input Form - adjust spacing */}
             <form
               onSubmit={handleSubmit}
-              className="flex flex-wrap gap-2 md:gap-4"
+              className="flex flex-col gap-6 md:gap-3 w-full"
             >
-              <input
-                type="text"
+              <textarea
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 disabled={isLoading}
-                className={`flex-1 rounded-full text-wrap px-3 md:px-4 py-2 text-sm md:text-base bg-white/30 backdrop-blur-sm focus:outline-none focus:border-white/40 text-[#7c4b88] placeholder-purple-950/50 shadow-sm transition-all duration-300 ${
+                rows="1"
+                className={`w-full rounded-xl text-wrap px-3 md:px-4 py-2 text-sm md:text-base bg-white/30 backdrop-blur-sm focus:outline-none focus:border-white/40 text-[#7c4b88] placeholder-purple-950/50 shadow-sm transition-all duration-300 ${
                   isLoading
                     ? "opacity-50 cursor-not-allowed"
                     : "hover:bg-white/40 hover:scale-101"

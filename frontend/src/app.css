@@ -1,8 +1,6 @@
 @import "tailwindcss";
-/* Defines the keyframes for the animation.
-  It animates the vertical background-position from top (0%) to bottom (100%) and back again,
-  creating a smooth, continuous "flowing down" effect.
-*/
+
+/* Background Gradient Animation */
 @keyframes gradient-flow-down {
   0% {
     background-position: 50% 0%;
@@ -15,32 +13,58 @@
   }
 }
 
-/* This class applies the animation to any element.
-*/
 .animated-gradient {
-  /* We set the background size to be twice as tall as the element.
-    This gives the gradient "room" to move up and down within the container.
-  */
   background-size: 100% 200%;
-  
-  /* Apply the animation defined above.
-    - 'gradient-flow-down' is the name of our @keyframes rule.
-    - '6s' is the duration of one animation cycle.
-    - 'ease' makes the animation start and end smoothly.
-    - 'infinite' makes the animation loop forever.
-  */
   animation: gradient-flow-down 6s ease infinite;
 }
 
+/* Hide Scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
 
-/* From Uiverse.io by adamgiebl */ 
+/* Chat Messages */
+.chat-message {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  hyphens: auto;
+}
+
+/* Input Textarea */
+textarea {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(115, 82, 199, 0.1);
+  border-radius: 1rem;
+  min-height: 3rem;
+  height: 3rem;
+  padding: 0.5rem 1rem;
+  transform-origin: bottom;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  line-height: 1.5;
+  resize: none;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+textarea:focus {
+  box-shadow: 0 8px 16px rgba(115, 82, 199, 0.15);
+  outline: none;
+  min-height: 4.5rem;
+  height: 5.5rem;
+  padding: 0.75rem 1.25rem;
+}
+
+/* Submit Button */
 .cssbuttons-io-button {
   background: #9365d991;
   color: white;
   font-family: inherit;
-  padding: 0.35em;
-  padding-left: 1.2em;
-  font-size: 17px;
+  padding: 0.35em 3.3em 0.35em 1.2em;
+  font-size: 15px;
   font-weight: 500;
   border-radius: 0.9em;
   border: none;
@@ -50,14 +74,15 @@
   box-shadow: inset 0 0 1.6em -0.6em #714da6;
   overflow: hidden;
   position: relative;
-  height: 2.8em;
-  padding-right: 3.3em;
+  height: 3em;
   cursor: pointer;
+  width: 9rem;
+  margin-left: auto;
+  transition: all 0.3s ease;
 }
 
 .cssbuttons-io-button .icon {
   background: white;
-  margin-left: 1em;
   position: absolute;
   display: flex;
   align-items: center;
@@ -67,7 +92,8 @@
   border-radius: 0.7em;
   box-shadow: 0.1em 0.1em 0.6em 0.2em #8b5cd1;
   right: 0.3em;
-  transition: all 0.3s;
+
+  transition: all 0.3s ease;
 }
 
 .cssbuttons-io-button:hover .icon {
@@ -76,7 +102,7 @@
 
 .cssbuttons-io-button .icon svg {
   width: 1.1em;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
   color: #7b52b9;
 }
 
@@ -85,9 +111,13 @@
 }
 
 .cssbuttons-io-button:active .icon {
-  transform: scale(0.90);
+  transform: scale(0.95);
 }
 
-::-webkit-scrollbar{
-  display: none;
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .cssbuttons-io-button {
+    margin-left: auto;
+    width: 10rem;
+  }
 }
