@@ -54,32 +54,37 @@ function App() {
 
   return (
     <>
-      {/* Spline scene for the background */}
-      <Spline
-        style={{
-          position: "fixed",
-          left: "-25%",
-          top: "0",
-          width: "100%",
-          height: "100vh",
-          zIndex: -1, // Ensure the spline scene stays in the background
-        }}
-        scene="https://prod.spline.design/3T8VklGmrB9LgwwZ/scene.splinecode"
-      />
+      {/* Spline scene - hidden on mobile */}
+      <div className="hidden md:block">
+        <Spline
+          style={{
+            position: "fixed",
+            left: "-25%",
+            top: "0",
+            width: "100%",
+            height: "100vh",
+            zIndex: -1,
+          }}
+          scene="https://prod.spline.design/3T8VklGmrB9LgwwZ/scene.splinecode"
+        />
+      </div>
 
-      <div className="absolute flex top-0 left-1/2 w-1/2">
-        <div className="right p-20 w-full bg-purple-50 h-screen">
-          <div className="h-full border-6 border-purple-200 bg-gradient-to-br from-purple-500/70 to-pink-200/80 animated-gradient w-full rounded-3xl p-6 flex flex-col shadow-xl shadow-gray-800/15 ">
+      {/* Main container - responsive layout */}
+      <div className="absolute flex top-0 w-full md:left-1/2 md:w-1/2">
+        <div className="right p-4 md:p-20 w-full bg-purple-50 h-[100vh] md:min-h-screen">
+          <div className="h-full border-6 border-purple-200 bg-gradient-to-br from-purple-500/70 to-pink-200/80 animated-gradient w-full rounded-3xl p-4 md:p-6 flex flex-col shadow-xl shadow-gray-800/15">
             {/* Chat Header */}
-            <div className="mb-6">
-              <h1 className="text-2xl font-bold text-white">
+            <div className="mb-4 md:mb-6">
+              <h1 className="text-xl md:text-2xl font-bold text-white">
                 AI Chat Assistant
               </h1>
-              <p className="text-sm text-white/80">Ask me anything!</p>
+              <p className="text-xs md:text-sm text-white/80">
+                Ask me anything!
+              </p>
             </div>
 
-            {/* Chat Messages */}
-            <div className="flex-1 overflow-y-auto mb-4 space-y-4 pr-2">
+            {/* Chat Messages - adjust padding and spacing */}
+            <div className="flex-1 overflow-y-auto mb-4 space-y-3 md:space-y-4 pr-2">
               {chatHistory.map((chat, index) => (
                 <div
                   key={index}
@@ -127,14 +132,17 @@ function App() {
               )}
             </div>
 
-            {/* Input Form */}
-            <form onSubmit={handleSubmit} className="flex flex-wrap gap-4">
+            {/* Input Form - adjust spacing */}
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-wrap gap-2 md:gap-4"
+            >
               <input
                 type="text"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                disabled={isLoading} // Disable input while loading
-                className={`flex-1 rounded-full text-wrap px-4 py-2 bg-white/30 backdrop-blur-sm focus:outline-none focus:border-white/40 text-[#7c4b88] placeholder-purple-950/50 shadow-sm transition-all duration-300 ${
+                disabled={isLoading}
+                className={`flex-1 rounded-full text-wrap px-3 md:px-4 py-2 text-sm md:text-base bg-white/30 backdrop-blur-sm focus:outline-none focus:border-white/40 text-[#7c4b88] placeholder-purple-950/50 shadow-sm transition-all duration-300 ${
                   isLoading
                     ? "opacity-50 cursor-not-allowed"
                     : "hover:bg-white/40 hover:scale-101"
@@ -147,7 +155,7 @@ function App() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className={`cssbuttons-io-button ${
+                className={`cssbuttons-io-button text-sm md:text-base ${
                   isLoading ? "opacity-50 cursor-not-allowed !pr-4" : ""
                 }`}
               >
