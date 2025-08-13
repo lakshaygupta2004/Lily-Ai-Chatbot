@@ -29,8 +29,8 @@ function App() {
   };
 
   useEffect(() => {
-    let socketInstance = io("https://lily-ai-chatbot.onrender.com");
-    // let socketInstance = io("http://localhost:3000"); // For local development
+    //let socketInstance = io("https://lily-ai-chatbot.onrender.com"); // backend URL for production
+     let socketInstance = io("http://localhost:3000"); // For local development
     // Connect to the production server
     setSocket(socketInstance);
     console.log("Connected to production server");
