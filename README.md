@@ -19,6 +19,9 @@
 ![Chatbot Preview] 
 <img src="/screenshots/Lily-Ai-Chatbot.png" alt="Chatbot Preview"/>
 ---
+![🔗Live Preview] (https://lily-ai-chatbot-sepia.vercel.app)
+---
+
 
 ## 🛠️ Tech Stack
 <p align="left">
