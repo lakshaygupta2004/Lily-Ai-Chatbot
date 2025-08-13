@@ -7,7 +7,7 @@ const httpServer = createServer(app);
 
 const io = new Server(httpServer, {
     cors: {
-        origin: ["http://localhost:5173", "https://lily-ai-chatbot.vercel.app"],
+        origin: ["http://localhost:5173", "https://lily-ai-chatbot-sepia.vercel.app"],
         methods: ["GET", "POST"]
     }
 });
